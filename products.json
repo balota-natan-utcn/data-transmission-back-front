@@ -1,0 +1,20 @@
+[
+    {
+        "id": 3,
+        "name": "product 1",
+        "description": "The quick brown fox",
+        "grade": 5
+    },
+    {
+        "id": 6,
+        "name": "product 2",
+        "description": "The quick brown boy",
+        "grade": 7
+    },
+    {
+        "id": 2,
+        "name": "product 3",
+        "description": "The quick brown athlet",
+        "grade": 3
+    }
+]

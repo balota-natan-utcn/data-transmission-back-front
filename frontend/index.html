@@ -6,15 +6,10 @@
 </head>
 <body>
   <h1>Frontend</h1>
-  <button onclick="fetchData()">Fetch Message</button>
+  <button onclick="fetchMessage()">Fetch Message</button>
   <p id="message"></p>
+  <button onclick="getProductAttribute(3, 'description')">Fetch Message</button>
 
-  <script>
-    async function fetchData() {
-      const res = await fetch('http://localhost:3000/api/message');
-      const data = await res.json();
-      document.getElementById('message').innerText = data.message;
-    }
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
