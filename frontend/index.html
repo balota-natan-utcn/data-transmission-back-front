@@ -3,12 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <title>Data Transfer Test</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Frontend</h1>
+  <h1>Products list</h1>
   <button onclick="fetchMessage()">Fetch Message</button>
   <p id="message"></p>
   <button onclick="getProductAttribute(3, 'description')">Fetch Message</button>
+  <button onclick="loadProductGrid()">Load Products</button>
+  <div id="productGrid" class="grid"></div>
 
   <script src="script.js"></script>
 </body>

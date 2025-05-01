@@ -47,6 +47,40 @@ app.get('/api/products/:id/:attribute', async (req, res) =>
   }
 });
 
+app.get('/api/products', async (req, res) => 
+{
+  try
+  {
+    const file = await fs.readFile('api/db/products.json', 'utf-8'); 
+    const products = JSON.parse(file);
+
+    const idsOnly = products.map(p => ({ id: p.id }));
+    res.json(idsOnly);
+  }catch (err)
+  {
+    console.error("Error reading products:", err);
+    res.status(500).json({ error: 'Server error ' });
+  }
+});
+
+app.get('/api/products/:id', async (req, res) => {
+  try {
+    const id = parseInt(req.params.id);
+    const file = await fs.readFile('api/db/products.json', 'utf-8');
+    const products = JSON.parse(file);
+    const product = products.find(p => p.id === id);
+
+    if (!product) {
+      return res.status(404).json({ error: 'Product not found' });
+    }
+
+    res.json(product);
+  } catch (err) {
+    console.error("Error fetching product:", err);
+    res.status(500).json({ error: 'Server error' });
+  }
+});
+
 app.listen(PORT, () =>
 {
   console.log(`Server running on http://localhost:${PORT}`);
